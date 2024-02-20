@@ -20,4 +20,31 @@ public:
     }
 };
 
+//Approch 2
+class Solution {
+public:
+    vector<int> nextLargerNodes(ListNode* head) {
+        vector<int> v;
+        while(head!=NULL){
+            v.push_back(head->val);
+            head=head->next;
+        }
+        vector<int> ans(v.size(), 0);
+        stack<int> s;
+        int n=v.size();
+        for(int i=n-1;i>=0;i--){
+            while(!s.empty() && s.top()<=v[i]){
+                s.pop();
+            }
+            if(i<n){
+                if(!s.empty()){
+                    ans[i]=s.top();
+                }
+            }
+            s.push(v[i]);
+        }
+        return ans;
+    }
+};
+
 
