@@ -1,0 +1,19 @@
+// using Vector and sort function
+class Solution {
+public:
+    ListNode* sortList(ListNode* head) {
+        vector<int> v;
+      while(head!=NULL){
+          v.push_back(head->val);
+          head=head->next;
+      }
+      sort(v.begin(),v.end());
+      ListNode *node=new ListNode(0);
+      ListNode *node2=node;
+      for(int i=0;i<v.size();i++){
+          node2->next=new ListNode(v[i]);
+          node2=node2->next;
+      }
+      return node->next;
+    }
+};
