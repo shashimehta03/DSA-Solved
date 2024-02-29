@@ -37,3 +37,23 @@ public:
        return prev;
     }
 };
+// Approach 3 using stack
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+      ListNode *temp=head;
+      stack<int> s;
+      while(temp!=NULL){
+          s.push(temp->val);
+          temp=temp->next;
+      }
+      ListNode *curr=new ListNode();
+      ListNode *ans = curr;
+      while(!s.empty()){
+          ans->next=new ListNode(s.top());
+          s.pop();
+          ans=ans->next;
+      }
+      return curr->next;
+    }
+};
