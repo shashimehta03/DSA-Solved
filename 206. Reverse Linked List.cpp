@@ -57,3 +57,19 @@ public:
       return curr->next;
     }
 };
+
+// using prev next and temp 
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+      ListNode *temp=head;
+      ListNode *prev=NULL;
+      while(temp!=NULL){
+          ListNode *front=temp->next; // storing next data
+          temp->next=prev;//pointing to previous
+          prev=temp;// updating previus to temp
+          temp=front;// updating temp to next
+      }
+      return prev; // we are returning prev because it has return last element
+    }
+};
