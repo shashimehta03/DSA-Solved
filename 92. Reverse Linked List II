@@ -1,0 +1,33 @@
+class Solution {
+public:
+    ListNode* reverseBetween(ListNode* head, int left, int right) {
+        if (head == nullptr || left >= right) {
+            return head;
+        }
+        ListNode* prev = nullptr;
+        ListNode* temp = head;
+
+        // Move to the node before the sublist to be reversed
+        for (int i = 1; i < left; ++i) {
+            prev = temp;
+            temp = temp->next;
+        }
+        ListNode* sublistPrev = prev;
+        ListNode* sublistTail = temp;
+        // Reverse the sublist
+        for (int i = left; i <= right; ++i) {
+            ListNode* next = temp->next;
+            temp->next = prev;
+            prev = temp;
+            temp = next;
+        }
+        // Join the reversed sublist with the rest of the list
+        if (sublistPrev != nullptr) {
+            sublistPrev->next = prev;
+        } else {
+            head = prev; // If left == 1, update head to the new start of the list
+        }
+        sublistTail->next = temp;
+        return head;
+    }
+};
