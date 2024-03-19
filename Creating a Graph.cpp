@@ -46,3 +46,18 @@ int main(){
 
     return 0;
 }
+// creating and printing Graph
+vector < vector < int >> printAdjacency(int n, int m, vector < vector < int >> & edges) {
+    vector<vector<int>> ans(n);
+    for(int i=0;i<n;i++){
+        ans[i].push_back(i);
+    }
+    for(auto& edge:edges){
+        int u=edge[0];
+        int v=edge[1];
+        ans[u].push_back(v);
+        ans[v].push_back(u);
+
+    }
+    return ans;
+}
