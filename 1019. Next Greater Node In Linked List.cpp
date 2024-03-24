@@ -1,4 +1,4 @@
-// approch 1 convert the linkedlist into vector ad perform the further operation
+// approch 1 convert the linkedlist into vector ad perform the further operation.
 class Solution {
 public:
     vector<int> nextLargerNodes(ListNode* head) {
