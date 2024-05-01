@@ -9,3 +9,16 @@ for(int i=nums.size()-1;i>=0;i--){
             }
         }
         return nums;
+
+// selection sort
+for(int i=0;i<5;i++){
+        int mini=i;
+        for(int j=i+1;j<5;j++){
+            if(arr[j]<arr[mini]){
+                mini=j;
+            }
+        }
+        int temp=arr[mini];
+        arr[mini]=arr[i];
+        arr[i]=temp;
+    }
