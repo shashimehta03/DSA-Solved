@@ -14,3 +14,24 @@ public:
         return v[k - 1];
     }
 };
+// ways 2
+class Solution {
+public:
+    void solve(TreeNode* node, int &cnt , int &ans, int k ) {
+        if (node == NULL)
+            return;
+        solve(node->left,cnt,ans,k);
+        cnt++;
+        if(cnt==k){
+            ans=node->val;
+            return ;
+        }
+        solve(node->right,cnt,ans,k);
+    }
+    int kthSmallest(TreeNode* root, int k) {
+        int cnt=0;
+        int ans;
+        solve(root,cnt,ans,k);
+        return ans;
+    }
+};
