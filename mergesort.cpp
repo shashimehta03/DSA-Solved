@@ -31,7 +31,7 @@ void merge(int arr[],int left,int right){
         arr[k++]=first[index1++];
     }
     while(index2<len2){
-        arr[k++]<second[index2++];
+        arr[k++]=second[index2++];
     }
 }
 void mergeSort(int arr[],int left,int right){
